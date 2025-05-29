@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stich by Stich | Premium Sewing Patterns</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F4EFE9;
+            --beige: #DCD8CD;
+            --taupe: #9E9C95;
+            --brown: #6B6A65;
+            --dark: #3B3A35;
+            --accent: #DCD8CD;
+            --accent-dark: #BFBBAF;
+            --sage: #8A9B6E; /* Новый зеленовато-серый оттенок */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Modern Header */
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.02);
+        }
+        
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            background-color: var(--sage); /* Используем новый цвет */
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--brown);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--sage); /* Используем новый цвет */
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--dark);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .header-actions svg {
+            width: 20px;
+            height: 20px;
+            color: var(--brown);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .header-actions svg:hover {
+            color: var(--dark);
+            transform: scale(1.1);
+        }
+        
+        /* Main Content */
+        .main-container {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                        url('https://i.pinimg.com/736x/f3/7e/a7/f37ea719c435b256aef31bf44be32951.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            color: white;
+            transition: all 0.5s ease;
+        }
+        
+        .hero:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            max-width: 600px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn:focus:not(:active)::after {
+            animation: ripple 0.6s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+        
+        .btn-primary {
+            background-color: var(--sage); /* Используем новый цвет */
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background-color: var(--sage); /* Используем новый цвет */
+            transition: width 0.3s ease;
+        }
+        
+        .section-title:hover:after {
+            width: 100%;
+        }
+        
+        /* Frames Navigation */
+        .frames-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .frame-tab {
+            padding: 0.8rem 1.5rem;
+            background-color: white;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+            user-select: none;
+        }
+        
+        .frame-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .frame-tab.active {
+            background-color: var(--sage); /* Используем новый цвет */
+            color: white;
+            box-shadow: 0 4px 8px rgba(138, 155, 110, 0.3);
+        }
+        
+        .frame-tab:active {
+            transform: translateY(0);
+        }
+        
+        /* Frames Container */
+        .frames-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .pattern-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pattern-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .pattern-image-container {
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+        }
+        
+        .pattern-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .pattern-card:hover .pattern-image {
+            transform: scale(1.03);
+        }
+        
+        .pattern-details {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pattern-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            transition: color 0.3s ease;
+        }
+        
+        .pattern-card:hover .pattern-title {
+            color: var(--sage); /* Используем новый цвет */
+        }
+        
+        .pattern-description {
+            color: var(--brown);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+        
+        .pattern-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        
+        .pattern-price {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .pattern-difficulty {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.85rem;
+            color: var(--taupe);
+        }
+        
+        .difficulty-dots {
+            display: flex;
+            gap: 0.2rem;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--beige);
+            transition: background-color 0.3s ease;
+        }
+        
+        .dot.filled {
+            background-color: var(--sage); /* Используем новый цвет */
+        }
+        
+        .pattern-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+        }
+        
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-secondary {
+            background-color: var(--beige);
+            color: var(--dark);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--taupe);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary:active {
+            transform: translateY(0);
+        }
+        
+        /* Category Navigation in Frames */
+        .category-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 0.6rem 1.2rem;
+            background-color: var(--cream);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--beige);
+        }
+        
+        .category-btn:hover {
+            background-color: var(--beige);
+            transform: translateY(-2px);
+        }
+        
+        .category-btn.active {
+            background-color: var(--sage); /* Используем новый цвет */
+            color: white;
+            border-color: var(--sage);
+        }
+        
+        /* Cart Notification */
+        .cart-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--sage); /* Используем новый цвет */
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .cart-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .cart-notification svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: var(--cream);
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40%;
+            height: 2px;
+            background-color: var(--sage); /* Используем новый цвет */
+            transition: width 0.3s ease;
+        }
+        
+        .footer-column h3:hover:after {
+            width: 100%;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--beige);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--sage); /* Используем новый цвет */
+            transform: translateX(5px);
+        }
+        
+        .footer-newsletter p {
+            margin-bottom: 1.5rem;
+            color: var(--beige);
+            font-size: 0.95rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .newsletter-form input {
+            padding: 0.8rem;
+            border: none;
+            width: 70%;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form input:focus {
+            outline: none;
+            box-shadow: inset 0 0 0 2px var(--sage); /* Используем новый цвет */
+        }
+        
+        .newsletter-form button {
+            padding: 0 1.2rem;
+            background-color: var(--sage); /* Используем новый цвет */
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: var(--dark);
+        }
+        
+        .newsletter-form button:active {
+            transform: scale(0.95);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--beige);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .social-links a:hover {
+            color: var(--sage); /* Используем новый цвет */
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .social-links svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--taupe);
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom a {
+            color: var(--beige);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-bottom a:hover {
+            color: var(--sage); /* Используем новый цвет */
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            /* Ноутбуки */
+            .hero {
+                height: 350px;
+                padding: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .frames-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* Планшеты */
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                height: 300px;
+                padding: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .frames-nav {
+                justify-content: center;
+            }
+            
+            .pattern-image-container {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Телефоны */
+            .main-container {
+                padding: 1rem;
+            }
+            
+            .hero {
+                height: 250px;
+                padding: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .frames-nav {
+                gap: 0.5rem;
+            }
+            
+            .frame-tab {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .frames-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .pattern-image-container {
+                height: 200px;
+            }
+            
+            .pattern-details {
+                padding: 1rem;
+            }
+            
+            .pattern-title {
+                font-size: 1.2rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer {
+                padding: 2rem 1rem 1rem;
+            }
+            
+            .footer-bottom {
+                margin-top: 2rem;
+                padding-top: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Header -->
+    <header class="header">
+        <a href="#" class="logo" id="logo">
+            <span class="logo-icon"></span>
+            Stich by Stich
+        </a>
+        
+        <nav class="nav-links">
+            <a href="#" class="nav-link" data-frame="featured">Shop Patterns</a>
+            <a href="#" class="nav-link" data-frame="bundles">Collections</a>
+            <a href="#" class="nav-link" data-frame="tutorials">Tutorials</a>
+            <a href="#" class="nav-link" data-frame="community">Community</a>
+            <a href="#" class="nav-link" data-frame="about">About</a>
+        </nav>
+        
+        <div class="header-actions">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="search-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="cart-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="account-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+        </div>
+    </header>
+    
+    <main class="main-container">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <h1>Craft Your Perfect Wardrobe</h1>
+            <p>Discover premium sewing patterns for every skill level. From timeless classics to modern designs, create garments that fit perfectly and reflect your personal style.</p>
+            <div>
+                <button class="btn btn-primary" id="exploreBtn">Explore Patterns</button>
+                <button class="btn btn-outline" id="learnBtn">Learn to Sew</button>
+            </div>
+        </section>
+        
+        <!-- Frames Navigation -->
+        <div class="frames-nav">
+            <div class="frame-tab active" data-frame="featured">Featured</div>
+            <div class="frame-tab" data-frame="dresses">Dresses</div>
+            <div class="frame-tab" data-frame="tops">Tops</div>
+            <div class="frame-tab" data-frame="bottoms">Bottoms</div>
+            <div class="frame-tab" data-frame="accessories">Accessories</div>
+            <div class="frame-tab" data-frame="bundles">Pattern Bundles</div>
+        </div>
+        
+        <h2 class="section-title" id="sectionTitle">Featured Patterns</h2>
+        
+        <!-- Frames Container -->
+        <div class="frames-container" id="featured">
+            
+            <!-- Pattern Card 1 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/8e/fe/15/8efe15296701b2acc8d38dedd9afb067.jpg" alt="Linen Dress Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Linen Wrap Dress</h3>
+                    <p class="pattern-description">Our bestselling wrap dress featuring adjustable ties, flattering V-neckline, and three sleeve variations. Perfect for lightweight fabrics like linen and cotton voile.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$18.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="dresses">View Similar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pattern Card 2 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/9f/d8/a0/9fd8a08b084fc62a294857521f047bcb.jpg" alt="Tailored Blazer Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Tailored Blazer</h3>
+                    <p class="pattern-description">Structured blazer with notched lapels, functional buttons, and interior pockets. Includes instructions for both woven and stretch fabrics. Intermediate level pattern.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$22.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot filled"></div>
+                                <div class="dot filled"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="tops">View Similar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pattern Card 3 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/e6/46/9c/e6469cc4fb7d0f2d85cc886fe6ef0a89.jpg" alt="Pleated Skirt Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Pleated Midi Skirt</h3>
+                    <p class="pattern-description">Elegant knife-pleated skirt with hidden zipper closure and lined options. Works beautifully with wool crepe for winter or lightweight cotton for summer.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$14.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="bottoms">View Similar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pattern Card 4 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/1c/66/13/1c6613ad65b280ee6a02b9b47c2bb800.jpg" alt="Button-Up Shirt Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Classic Button-Up</h3>
+                    <p class="pattern-description">The perfect fitted shirt with collar, button placket, and curved hem. Includes three sleeve lengths and bust dart variations for custom fit.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$16.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="tops">View Similar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pattern Card 5 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/0f/ae/0d/0fae0d34c23443a38fcde2ec78cd89f5.jpg" alt="Summer Jumpsuit Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Summer Jumpsuit</h3>
+                    <p class="pattern-description">Comfortable wide-leg jumpsuit with adjustable straps and deep pockets. Designed for breathable fabrics like linen and lightweight cotton.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$19.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="bundles">View Bundle</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pattern Card 6 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/67/a0/66/67a06657601ff9a15e030a2055aae36b.jpg" alt="Tote Bag Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Structured Tote Bag</h3>
+                    <p class="pattern-description">Roomy tote with leather handles, interior pockets, and optional zipper closure. Perfect for using up heavier fabrics like canvas or denim.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$12.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="accessories">View Similar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dresses Frame -->
+        <div class="frames-container" id="dresses" style="display:none;">
+            
+            <!-- Dress Pattern 1 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/8f/92/bb/8f92bb9f1e37c8253b4ba96f8a27645b.jpg" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Summer Sundress</h3>
+                    <p class="pattern-description">Light and airy sundress with adjustable straps and flared skirt. Perfect for warm weather and beach vacations. Includes pocket options.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$15.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="featured">Featured</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dress Pattern 2 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/6f/ac/73/6fac731e11193cb91373ce2e0281a17c.jpg" alt="Maxi Dress Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Maxi Dress with Slit</h3>
+                    <p class="pattern-description">Elegant floor-length dress with side slit and fitted bodice. Includes variations for different necklines and sleeve lengths.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$17.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="bundles">Bundle Deal</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dress Pattern 3 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/ba/4b/7f/ba4b7f6b03e86be53540ba8a1a7b7339.jpg" alt="Shirt Dress Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Classic Shirt Dress</h3>
+                    <p class="pattern-description">Versatile shirt dress with button front, collar, and belt options. Can be made in everything from denim to silk.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$16.50</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="tops">Matching Top</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tops Frame -->
+        <div class="frames-container" id="tops" style="display:none;">
+            
+            <!-- Top Pattern 1 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/a1/f6/ae/a1f6ae367814f98e8c204260bf6c8ffd.jpg" alt="Wrap Top Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Wrap Blouse</h3>
+                    <p class="pattern-description">Flattering wrap-style blouse with three sleeve variations. Works with woven fabrics like rayon or lightweight linen.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$12.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="dresses">Matching Dress</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Top Pattern 2 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/c3/11/fb/c311fbbde39e9b406251cc5a4c7e692f.jpg" alt="Basic Tee Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Basic Tee</h3>
+                    <p class="pattern-description">The perfect everyday t-shirt pattern with multiple neckline options. Designed for knits with 10% or more stretch.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$9.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="bundles">Bundle Deal</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Top Pattern 3 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/e7/6c/80/e76c80930d4a461aeefafe45194014d3.jpg" alt="Peplum Top Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Peplum Top</h3>
+                    <p class="pattern-description">Feminine peplum top with fitted bodice. Includes options for different sleeve lengths and peplum styles.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$11.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="bottoms">Pair with Skirt</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottoms Frame -->
+        <div class="frames-container" id="bottoms" style="display:none;">
+            
+            <!-- Bottom Pattern 1 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/68/50/a3/6850a3de75a176b7e64e6edcc87b8a16.jpg" alt="Wide Leg Pants Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Wide Leg Pants</h3>
+                    <p class="pattern-description">Comfortable wide leg pants with elastic waist and deep pockets. Perfect for linen or lightweight wool.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$14.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="tops">Pair with Top</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Pattern 2 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/6a/80/fb/6a80fb894d43050384fdab282d0a88a9.jpg" alt="Pencil Skirt Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Pencil Skirt</h3>
+                    <p class="pattern-description">Classic pencil skirt with back vent and optional lining. Fitted through hips with straight silhouette.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$12.50</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="bundles">Bundle Deal</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Pattern 3 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/6b/cf/11/6bcf11456d6acbd748cf2fb1e4c91f53.jpg" alt="Denim Shorts Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Denim Shorts</h3>
+                    <p class="pattern-description">Classic high-waisted shorts with multiple length options. Includes instructions for distressing and customizing.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$10.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="featured">Featured</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accessories Frame -->
+        <div class="frames-container" id="accessories" style="display:none;">
+            
+            <!-- Accessory Pattern 1 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/67/a0/66/67a06657601ff9a15e030a2055aae36b.jpg" alt="Tote Bag Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Structured Tote Bag</h3>
+                    <p class="pattern-description">Roomy tote with leather handles, interior pockets, and optional zipper closure. Perfect for using up heavier fabrics like canvas or denim.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$12.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="featured">Featured</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Accessory Pattern 2 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/26/8d/1d/268d1ddcd46098ddd9951fce524270d0.jpg" alt="Bucket Hat Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Bucket Hat</h3>
+                    <p class="pattern-description">Stylish bucket hat with optional lining. Works with everything from cotton to waterproof fabrics.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$8.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="bundles">Bundle Deal</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Accessory Pattern 3 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/8e/7f/0c/8e7f0cb62cfe87ee642cc8e6d67f57b5.jpg" alt="Scrunchie Set Pattern" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Scrunchie Set</h3>
+                    <p class="pattern-description">Make 5 different scrunchies from scrap fabric. Includes instructions for standard, ruffled, and bow styles.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$5.99</span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="dresses">Match with Dress</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bundles Frame -->
+        <div class="frames-container" id="bundles" style="display:none;">
+            
+            <!-- Bundle Pattern 1 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/ff/12/17/ff12172f8d290e3dbad71d0ae648f80b.jpg" alt="Summer Essentials Bundle" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Summer Essentials Bundle</h3>
+                    <p class="pattern-description">Includes wrap dress, wide leg pants, and matching top patterns. Save 20% compared to buying separately.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$34.99 <span style="text-decoration: line-through; color: var(--taupe); font-size: 0.9rem;">$42.97</span></span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="featured">View Patterns</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bundle Pattern 2 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/ff/b8/c4/ffb8c41420a2c7b757fd40157a1c894f.jpg" alt="Beginner's Bundle" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Beginner's Bundle</h3>
+                    <p class="pattern-description">Perfect starter pack with 3 easy patterns (skirt, top, tote bag) and bonus sewing guide. Save 25%.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$24.99 <span style="text-decoration: line-through; color: var(--taupe); font-size: 0.9rem;">$32.97</span></span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="accessories">View Accessory</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bundle Pattern 3 -->
+            <div class="pattern-card">
+                <div class="pattern-image-container">
+                    <img src="https://i.pinimg.com/736x/68/71/d1/6871d19aec7606c92822231755da5250.jpg" alt="Work Wardrobe Bundle" class="pattern-image">
+                </div>
+                <div class="pattern-details">
+                    <h3 class="pattern-title">Work Wardrobe Bundle</h3>
+                    <p class="pattern-description">Professional collection including blazer, pencil skirt, and button-up shirt patterns. Save 30%.</p>
+                    <div class="pattern-meta">
+                        <span class="pattern-price">$45.99 <span style="text-decoration: line-through; color: var(--taupe); font-size: 0.9rem;">$64.97</span></span>
+                        <span class="pattern-difficulty">
+                            Difficulty:
+                            <div class="difficulty-dots">
+                                <div class="dot filled"></div>
+                                <div class="dot filled"></div>
+                                <div class="dot filled"></div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="pattern-actions">
+                        <button class="btn btn-primary btn-small add-to-cart">Add to Cart</button>
+                        <button class="btn btn-secondary btn-small view-details" data-frame="tops">View Tops</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tutorials Frame -->
+        <div class="frames-container" id="tutorials" style="display:none;">
+            <h2 class="section-title">Sewing Tutorials</h2>
+            <p>Coming soon! Our library of video tutorials will help you master every technique needed for our patterns.</p>
+            <button class="btn btn-primary" data-frame="featured">Browse Patterns</button>
+        </div>
+        
+        <!-- Community Frame -->
+        <div class="frames-container" id="community" style="display:none;">
+            <h2 class="section-title">Community</h2>
+            <p>Join our community of makers to share your creations and get inspiration!</p>
+            <button class="btn btn-primary" data-frame="featured">Browse Patterns</button>
+        </div>
+        
+        <!-- About Frame -->
+        <div class="frames-container" id="about" style="display:none;">
+            <h2 class="section-title">About Stich by Stich</h2>
+            <p>We're passionate about helping you create garments you'll love to wear. Our patterns are carefully drafted for perfect fit and timeless style.</p>
+            <button class="btn btn-primary" data-frame="featured">Browse Patterns</button>
+        </div>
+    </main>
+    
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Item added to your cart!</span>
+    </div>
+    
+    <!-- Modern Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Stich by Stich</h3>
+                <p>Premium sewing patterns for makers who value quality, fit, and timeless style. Founded in 2015 by a team of passionate sewists and designers.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul class="footer-links">
+                    <li><a href="#" data-frame="featured">New Patterns</a></li>
+                    <li><a href="#" data-frame="bundles">Best Sellers</a></li>
+                    <li><a href="#" data-frame="bundles">Pattern Bundles</a></li>
+                    <li><a href="#" data-frame="featured">Digital Downloads</a></li>
+                    <li><a href="#" data-frame="featured">Gift Cards</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#" data-frame="tutorials">Sewing Tutorials</a></li>
+                    <li><a href="#" data-frame="tutorials">Size Guide</a></li>
+                    <li><a href="#" data-frame="tutorials">Fabric Recommendations</a></li>
+                    <li><a href="#" data-frame="tutorials">Pattern Adjustments</a></li>
+                    <li><a href="#" data-frame="community">Community Forum</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive new pattern releases, exclusive discounts, and sewing tips straight to your inbox.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </form>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Pinterest">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12.17 2.5c-.61 0-1.2.12-1.76.32a6.5 6.5 0 0 0-4.14 4.14c-.2.56-.32 1.15-.32 1.76 0 1.56.62 3.03 1.71 4.1a5.5 5.5 0 0 0 3.1 1.57l-1.17 4.38a1 1 0 0 0 1.51 1.11L12 16.5l3.86 2.58a1 1 0 0 0 1.51-1.11l-1.17-4.38a5.5 5.5 0 0 0 3.1-1.57 5.5 5.5 0 0 0 1.71-4.1c0-.61-.12-1.2-.32-1.76a6.5 6.5 0 0 0-4.14-4.14 6.5 6.5 0 0 0-1.76-.32z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Stich by Stich Patterns. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Frame switching functionality
+        function showFrame(frameId) {
+            // Hide all frames
+            const frames = document.querySelectorAll('.frames-container');
+            frames.forEach(frame => {
+                frame.style.display = 'none';
+            });
+            
+            // Show the selected frame
+            const frameToShow = document.getElementById(frameId);
+            if (frameToShow) {
+                frameToShow.style.display = 'grid';
+            }
+            
+            // Update active tab
+            const tabs = document.querySelectorAll('.frame-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.frame === frameId) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            // Update section title
+            const sectionTitle = document.getElementById('sectionTitle');
+            if (sectionTitle) {
+                switch(frameId) {
+                    case 'featured':
+                        sectionTitle.textContent = 'Featured Patterns';
+                        break;
+                    case 'dresses':
+                        sectionTitle.textContent = 'Dress Patterns';
+                        break;
+                    case 'tops':
+                        sectionTitle.textContent = 'Top Patterns';
+                        break;
+                    case 'bottoms':
+                        sectionTitle.textContent = 'Bottom Patterns';
+                        break;
+                    case 'accessories':
+                        sectionTitle.textContent = 'Accessory Patterns';
+                        break;
+                    case 'bundles':
+                        sectionTitle.textContent = 'Pattern Bundles';
+                        break;
+                    default:
+                        sectionTitle.textContent = 'Stich by Stich Patterns';
+                }
+            }
+            
+            // Scroll to patterns section
+            if (frameId !== 'featured') {
+                document.querySelector('.section-title').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            } else {
+                window.scrollTo({
+                    top: document.querySelector('.frames-nav').offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Initialize with featured frame
+        showFrame('featured');
+        
+        // Cart functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const cartNotification = document.getElementById('cartNotification');
+        const cartIcon = document.querySelector('.cart-icon');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Get pattern name
+                const patternName = this.closest('.pattern-card').querySelector('.pattern-title').textContent;
+                
+                // Show notification
+                cartNotification.querySelector('span').textContent = `${patternName} added to cart!`;
+                cartNotification.classList.add('show');
+                
+                // Animate cart icon
+                cartIcon.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    cartIcon.style.transform = 'scale(1)';
+                }, 300);
+                
+                // Hide notification after 3 seconds
+                setTimeout(() => {
+                    cartNotification.classList.remove('show');
+                }, 3000);
+            });
+        });
+        
+        // Navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const frameId = this.dataset.frame;
+                showFrame(frameId);
+            });
+        });
+        
+        // Frame tabs
+        const frameTabs = document.querySelectorAll('.frame-tab');
+        
+        frameTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const frameId = this.dataset.frame;
+                showFrame(frameId);
+            });
+        });
+        
+        // Hero buttons
+        const exploreBtn = document.getElementById('exploreBtn');
+        const learnBtn = document.getElementById('learnBtn');
+        
+        exploreBtn.addEventListener('click', function() {
+            showFrame('featured');
+        });
+        
+        learnBtn.addEventListener('click', function() {
+            showFrame('tutorials');
+        });
+        
+        // Logo click
+        const logo = document.getElementById('logo');
+        
+        logo.addEventListener('click', function(e) {
+            e.preventDefault();
+            showFrame('featured');
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // View details buttons
+        const viewDetailsButtons = document.querySelectorAll('.view-details');
+        
+        viewDetailsButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const frameId = this.dataset.frame;
+                showFrame(frameId);
+            });
+        });
+        
+        // Category buttons
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // In a real site, this would filter the patterns
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Newsletter form
+        const newsletterForm = document.getElementById('newsletterForm');
+        
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert(`Thank you for subscribing with ${email}! You'll receive our next newsletter.`);
+            this.reset();
+        });
+        
+        // Social media links
+        const socialLinks = document.querySelectorAll('.social-links a');
+        
+        socialLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const platform = this.getAttribute('aria-label');
+                alert(`In a real site, this would link to our ${platform} page.`);
+            });
+        });
+        
+        // Footer links
+        const footerLinks = document.querySelectorAll('.footer-links a');
+        
+        footerLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const frameId = this.dataset.frame;
+                if (frameId) {
+                    showFrame(frameId);
+                }
+            });
+        });
+        
+        // Search icon
+        const searchIcon = document.querySelector('.search-icon');
+        
+        searchIcon.addEventListener('click', function() {
+            const searchTerm = prompt('What patterns are you looking for?');
+            if (searchTerm) {
+                alert(`Searching for: ${searchTerm}\nIn a real site, this would filter the patterns.`);
+            }
+        });
+        
+        // Account icon
+        const accountIcon = document.querySelector('.account-icon');
+        
+        accountIcon.addEventListener('click', function() {
+            alert('Account menu would appear here in a real site.');
+        });
+    </script>
+</body>
+</html>
